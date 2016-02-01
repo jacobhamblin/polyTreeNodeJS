@@ -1,0 +1,25 @@
+{
+  "name": "polytreenodejs",
+  "version": "1.0.0",
+  "description": "Implementation of a Poly Tree Node in javascript, mainly to practice testing",
+  "main": "treeNode.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "data",
+    "structure",
+    "tdd",
+    "mocha",
+    "javascript"
+  ],
+  "author": "Jacob Hamblin",
+  "license": "ISC",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.4.5"
+  }
+}
