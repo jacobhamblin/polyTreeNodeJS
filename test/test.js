@@ -7,6 +7,4 @@ describe('treeNode', function () {
       expect(new treeNode().value).to.eql(null);
     });
   });
-
-  describe('')
 });
