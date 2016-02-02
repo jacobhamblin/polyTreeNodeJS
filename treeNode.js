@@ -1,13 +1,9 @@
 function treeNode(options) {
-  if (options) {
-    this.parent = options.parent || null;
-    this.children = options.children || [];
-    this.value = options.value || null;
-  } else {
-    this.parent = null;
-    this.children = [];
-    this.value = null;
-  }
+  options = options || {};
+
+  this.parent = options.parent || null;
+  this.children = options.children || [];
+  this.value = options.value || null;
 
   this.addChild = function (node) {
     if (
