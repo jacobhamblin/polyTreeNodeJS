@@ -6,17 +6,22 @@ function treeNode(options) {
   this.value = options.value || null;
 
   this.addChild = function (node) {
-    if (
-      node.hasOwnProperty('parent') &&
-      node.hasOwnProperty('children') &&
-      node.hasOwnProperty('value')
-    ) {
-      node.parent = this;
-      this.children.push(node);
+    if (node instanceof treeNode) {
+      var present = false;
+      for (var i = 0; i < this.children.length; i++) {
+        var child = this.children[i];
+        if (child === node) present = true;
+      }
+      if (present === false) {
+        node.parent = this;
+        this.children.push(node);
+      }
     } else {
-      throw new TypeError("parameter is not an instance of treeNode");
+      throw new TypeError("Parameter is not an instance of treeNode");
     }
   };
+
+
 }
 
 module.exports = treeNode;

@@ -41,6 +41,38 @@ describe('treeNode', function () {
     it('should become the output of the node\'s property \'parent\'', function () {
       emptyNode.addChild(secondEmptyNode);
       expect(secondEmptyNode.parent).to.eql(emptyNode);
-    })
+    });
+
+    it ('should not add the same node twice', function () {
+      emptyNode.addChild(secondEmptyNode);
+      emptyNode.addChild(secondEmptyNode);
+      expect(emptyNode.children.length).to.eql(1);
+    });
+
+    it('should throw an error if the parameter is not a node', function () {
+      expect(emptyNode.addChild('string')).to.throw();
+    });
+  });
+
+  describe('#removeChild', function () {
+    it('should remove paremeter node from children array', function () {
+      emptyNode.addChild(secondEmptyNode);
+      emptyNode.removeChild(secondEmptyNode);
+      expect(emptyNode.children).to.eql([]);
+    });
+
+    it('should remove self from supplied node\'s "parent" property', function () {
+      emptyNode.addChild(secondEmptyNode);
+      emptyNode.removeChild(secondEmptyNode);
+      expect(secondEmptyNode.parent).to.eql(null);
+    });
+
+    it('should return -1 if the parameter node is not a child of the node', function () {
+      expect(emptyNode.removeChild(secondEmptyNode)).to.eql(-1);
+    });
+
+    it('should throw an error if the parameter is not a node', function () {
+      expect(emptyNode.removeChild({})).to.throw();
+    });
   });
 });
