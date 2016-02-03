@@ -1,4 +1,4 @@
-var expect = require('expect.js');
+var expect = require('chai').expect;
 var treeNode = require('../treeNode.js');
 
 describe('treeNode', function () {
@@ -50,7 +50,8 @@ describe('treeNode', function () {
     });
 
     it('should throw an error if the parameter is not a node', function () {
-      expect(emptyNode.addChild('string')).to.throw();
+      var err = new TypeError("Parameter is not an instance of treeNode");
+      expect(emptyNode.addChild('string')).to.throw(err);
     });
   });
 
@@ -72,7 +73,7 @@ describe('treeNode', function () {
     });
 
     it('should throw an error if the parameter is not a node', function () {
-      expect(emptyNode.removeChild({})).to.throw();
+      expect(emptyNode.removeChild({})).to.throw(TypeError);
     });
   });
 });
