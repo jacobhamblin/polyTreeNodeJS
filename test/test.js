@@ -56,7 +56,7 @@ describe('treeNode', function () {
   });
 
   describe('#removeChild', function () {
-    it('should remove paremeter node from children array', function () {
+    it('should remove parameter node from children array', function () {
       emptyNode.addChild(secondEmptyNode);
       emptyNode.removeChild(secondEmptyNode);
       expect(emptyNode.children).to.eql([]);
