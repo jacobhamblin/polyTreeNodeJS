@@ -51,7 +51,7 @@ describe('treeNode', function () {
 
     it('should throw an error if the parameter is not a node', function () {
       var err = new TypeError("Parameter is not an instance of treeNode");
-      expect(emptyNode.addChild('string')).to.throw(err);
+      expect(function() {emptyNode.addChild('string')}).to.throw(TypeError);
     });
   });
 
@@ -73,7 +73,7 @@ describe('treeNode', function () {
     });
 
     it('should throw an error if the parameter is not a node', function () {
-      expect(emptyNode.removeChild({})).to.throw(TypeError);
+      expect(function() {emptyNode.removeChild({})}).to.throw(TypeError);
     });
   });
 });
